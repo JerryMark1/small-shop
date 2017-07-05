@@ -1,0 +1,51 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+   <view class="swiper-box">
+       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{images}}">
+            <swiper-item>
+                 <image src="{{item.picurl}}" class="slide-image" width="355" height="150"/>
+           </swiper-item>
+          </block>
+       </swiper>
+   </view>
+    
+    <view class="text">
+      <view class="text-line"></view>
+      <text>主题馆</text>
+    </view>
+
+    <view class="ven-box">
+       <view class="ven-list">
+          <block wx:for="{{venuesItems}}">
+             <view class="ven-item">
+                <navigator url="../brand/index?id={{item.id}}">
+                  <image src="{{item.smallpic}}"></image>
+                </navigator>
+             </view>
+          </block>
+       </view>
+    </view>
+
+    <view class="text">
+      <view class="text-line"></view>
+      <text>环球精选</text>
+    </view>
+
+     <view class="choice_box">
+        <view class="choice_list">
+            <block wx:for="{{choiceItems}}">
+                <navigator url="../details/index?id={{item.id}}">
+                    <view class="choice_item">
+                        <image src="{{item.goodspics}}"/>
+                        <view class="title">{{item.title}}</view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+
+
+    <loading hidden="{{loadingHidden}}">加载中...</loading>
+
+</view>
